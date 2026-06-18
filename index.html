@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Mason Construction | Luxury Outdoor Living</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <style>
+        :root {
+            --primary-dark: #2C3E46;
+            --slate-gray: #5A6B73;
+            --light-gray: #EAEFEF;
+            --accent-amber: #C58B49;
+            --accent-amber-hover: #A47137;
+            --bg-offwhite: #F8FAFA;
+            --text-main: #1C282D;
+            --text-light: #60727A;
+            --card-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-offwhite);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(44, 62, 70, 0.08);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            width: 120px;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            color: var(--slate-gray);
+            margin-top: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        nav a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-amber);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+            padding: 12px 26px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 4px;
+            border: 1px solid var(--primary-dark);
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 650px;
+            background: linear-gradient(rgba(44, 62, 70, 0.4), rgba(44, 62, 70, 0.55)),
+                url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 20px;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.15;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--light-gray);
+            border-top: 2px solid var(--accent-amber);
+            display: inline-block;
+            padding-top: 15px;
+        }
+
+        /* Section Global Settings */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary-dark);
+            display: inline-block;
+        }
+
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-amber);
+            margin-top: 15px;
+        }
+
+        /* About Us */
+        .about {
+            background-color: #ffffff;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--slate-gray);
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 2px solid var(--primary-dark);
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 4px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+        }
+
+        /* About Video Container Styling */
+        .about-image {
+            position: relative;
+            height: 480px;
+            background-color: #000;
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--light-gray);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        /* Make sure the video fills the block perfectly */
+        .about-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Custom Play Button Overlay Overlay */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 70, 0.3);
+            /* Premium dark slate tint over thumbnail */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .play-btn {
+            width: 75px;
+            height: 75px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            padding-left: 5px;
+            /* Centers the triangle icon beautifully */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .about-image:hover .play-btn {
+            transform: scale(1.1);
+            background-color: var(--accent-amber);
+            color: #ffffff;
+        }
+
+        /* Hide the overlay elements gracefully when video is active */
+        .about-image.is-playing .video-overlay {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--bg-offwhite);
+        }
+
+        .services-intro {
+            max-width: 700px;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            grid-column: span 2;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:nth-child(4),
+        .service-card:nth-child(5) {
+            grid-column: md-span 3;
+            /* handled via sub-layout or media query, let's keep clean grid flow */
+            grid-column: span 3;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 48px rgba(44, 62, 70, 0.12);
+        }
+
+        .service-img {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-info {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-info h3 {
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .service-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-amber);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .service-link:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Portfolio */
+        .portfolio {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+        }
+
+        .portfolio .section-header h2 {
+            color: #ffffff;
+        }
+
+        .portfolio-intro {
+            max-width: 800px;
+            color: var(--light-gray);
+            margin-bottom: 50px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 260px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(44, 62, 70, 0.9), rgba(44, 62, 70, 0.2));
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+        }
+
+        /* Contact & Location */
+        .contact-section {
+            background-color: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+        }
+
+        .contact-details h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .info-block {
+            margin-bottom: 30px;
+        }
+
+        .info-block h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-amber);
+            margin-bottom: 6px;
+        }
+
+        .info-block p {
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+
+        .info-block a:hover {
+            color: var(--accent-amber);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--light-gray);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1E2B30;
+            color: #ffffff;
+            padding: 60px 8% 30px 8%;
+            border-top: 4px solid var(--accent-amber);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .logo-text {
+            color: #ffffff;
+        }
+
+        .footer-brand .logo-text span {
+            color: var(--light-gray);
+        }
+
+        .footer-brand p {
+            margin-top: 20px;
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            max-width: 320px;
+        }
+
+        .footer-links h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-amber);
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent-amber);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--light-gray);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .service-card {
+                grid-column: span 2;
+            }
+
+            .service-card:nth-child(5) {
+                grid-column: span 4;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image {
+                height: 350px;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .services-grid,
+            .portfolio-grid,
+            .contact-section,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card,
+            .service-card:nth-child(4),
+            .service-card:nth-child(5) {
+                grid-column: span 1;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="#home" class="logo-link">
+            <img src="logo.png" alt="Stone Mason Construction Logo" class="header-logo">
+        </a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="tel:5043776224" class="cta-btn">Call Today</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Stone Mason Construction</h1>
+            <p>Built to last, designed to impress.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-text">
+            <div class="section-header">
+                <h2>About Us</h2>
+            </div>
+            <h3>Transforming ordinary backyards into extraordinary outdoor living spaces.</h3>
+            <p>At Stone Mason Construction, we specialize in crafting premium, functional custom environments where
+                families and friends can gather, relax, and enjoy the outdoors in comfort and absolute style.</p>
+            <p>We believe your outdoor space should feel like a seamless natural extension of your home. That's why we
+                work closely with every single client to bring their unique vision to life—from the initial hand-drawn
+                concept to the meticulous final stone installation.</p>
+            <a href="#contact" class="btn-secondary">Learn More</a>
+        </div>
+
+        <div class="about-image" id="videoContainer">
+            <video id="aboutVideo" poster="custom-pool.jpg" preload="none">
+                <source src="backyard.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="video-overlay" onclick="toggleVideo()">
+                <div class="play-btn">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>What We Can Do For You</h2>
+        </div>
+        <p class="services-intro">With a deep focus on uncompromising craftsmanship and highly durable materials, we
+            design and build premium features perfectly tailored to stand up to the elements while fully complementing
+            your home's natural aesthetic.</p>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('IMG_9861_edited.avif');">
+                </div>
+                <div class="service-info">
+                    <div>
+                        <h3>Custom Patios</h3>
+                        <p>Beautifully designed, robust stone and paver patios built to frame your premium outdoor
+                            experiences.</p>
+                    </div>
+                    <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+                </div>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('pergola.jpg');">
+                </div>
+                <div class="service-info">
+                    <div>
+                        <h3>Pergolas</h3>
+                        <p>Custom wooden and composite architectural overhead elements offering the ideal balance of
+                            light and shade.</p>
+                    </div>
+                    <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+                </div>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('outdoor-kitchen-1.jpg');">
+                </div>
+                <div class="service-info">
+                    <div>
+                        <h3>Outdoor Kitchens</h3>
+                        <p>Fully equipped culinary stations with weather-proof masonry structures and integrated
+                            top-tier appliances.</p>
+                    </div>
+                    <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+                </div>
+            </div>
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80');">
+                </div>
+                <div class="service-info">
+                    <div>
+                        <h3>Patio Covers</h3>
+                        <p>Full-coverage structural architectural elements ensuring your comfort no matter the seasonal
+                            forecast.</p>
+                    </div>
+                    <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+                </div>
+            </div>
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('luxury-pavilion.png');">
+                </div>
+                <div class="service-info">
+                    <div>
+                        <h3>Pavilions</h3>
+                        <p>Magnificent freestanding outdoor structures featuring vaulted designs and exquisite exposed
+                            stone accents.</p>
+                    </div>
+                    <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-header">
+            <h2>Our Portfolio</h2>
+        </div>
+        <p class="portfolio-intro">Explore a curation of our masterfully engineered custom outdoor living projects
+            across Louisiana and Mississippi. Each structural build showcases our signature blend of fine craftsmanship,
+            meticulous masonry detail, and timeless luxury design.</p>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="luxury-pavilion.png" alt="Project">
+                <div class="portfolio-overlay">
+                    <h4>Luxury Pavilion</h4>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="stone.jpg" alt="Project">
+                <div class="portfolio-overlay">
+                    <h4>Stone Fireplace</h4>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="modern.png" alt="Project">
+                <div class="portfolio-overlay">
+                    <h4>Modern Patio</h4>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="outdoor-kitchen.jpg" alt="Project">
+                <div class="portfolio-overlay">
+                    <h4>Outdoor Kitchen</h4>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="custom-pool.jpg" alt="Project">
+                <div class="portfolio-overlay">
+                    <h4>Custom Pool Deck</h4>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="pregola-retreat.jpg" alt="Project">
+                <div class="portfolio-overlay">
+                    <h4>Pergola Retreat</h4>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="masanory.jpg" alt="Project">
+                <div class="portfolio-overlay">
+                    <h4>Masonry Wall</h4>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="premium-living.jpg" alt="Project">
+                <div class="portfolio-overlay">
+                    <h4>Premium Living Space</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-details">
+            <div class="section-header">
+                <h2>Visit Us</h2>
+            </div>
+            <h3>Let's build something exceptional.</h3>
+
+            <div class="info-block">
+                <h4>Showroom Address</h4>
+                <p>25892 Linwood Rd<br>Denham Springs, LA 70726</p>
+            </div>
+
+            <div class="info-block">
+                <h4>Direct Contact</h4>
+                <p>Phone: <a href="tel:5043776224">504-377-6224</a></p>
+                <p>Email: <a href="mailto:cvmlawns@hotmail.com">cvmlawns@hotmail.com</a></p>
+            </div>
+
+            <div class="info-block">
+                <h4>Hours of Operation</h4>
+                <p>Mon - Fri: 8:00 am – 6:00 pm</p>
+                <p>Saturday: 10:00 am – 3:00 pm</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <!-- Simulated Premium Minimal Map -->
+            <iframe
+                src="https://maps.google.com/maps?q=25892%20Linwood%20Rd,%20Denham%20Springs,%20LA%2070726&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="logo-link">
+                    <img src="logo.png" alt="Stone Mason Construction Logo" class="header-logo">
+                </a>
+                <p>Crafting high-quality, luxury outdoor structural extensions with uncompromising material integrity
+                    across Louisiana and Mississippi.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#portfolio">Our Work Portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/stonemasonconstruction/" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@stone.mason.llc" aria-label="TikTok"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://www.youtube.com/@StoneMasonConstruction" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stone Mason Construction LLC. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Accessibility Statement</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function toggleVideo() {
+            const video = document.getElementById('aboutVideo');
+            const container = document.getElementById('videoContainer');
+
+            video.play();
+            container.classList.add('is-playing');
+            video.setAttribute('controls', 'true');
+        }
+    </script>
+</body>
+
+</html>
